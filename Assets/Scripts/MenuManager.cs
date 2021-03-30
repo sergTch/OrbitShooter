@@ -19,11 +19,12 @@ public class MenuManager : MonoBehaviour
     public Text freezeTimer;
     public Text shieldTimer;
 
-    public bool freeze, shield;
+    public Button freezeButton, shieldButton;
 
     public string reward;
     public Animator curtain;
 
+    public int freezeTime, shieldTime;
     bool shownSettings = false;
 
     void Start()
@@ -39,6 +40,7 @@ public class MenuManager : MonoBehaviour
         LoadPurchases();
         if (Camera.main.aspect < 1)
             Camera.main.orthographicSize = Camera.main.orthographicSize / Camera.main.aspect;
+        StartCoroutine(RunTimers());
     }
 
     public void LoadPurchases()
@@ -49,20 +51,14 @@ public class MenuManager : MonoBehaviour
         {
             TimeSpan timeLeft = DateTime.Parse(str) - DateTime.Now;
             if (timeLeft > TimeSpan.FromSeconds(5))
-            {
-                freeze = true;
-                StartCoroutine(SetTimer(freezeTimer, timeLeft.Seconds + timeLeft.Minutes * 60));
-            }
+                freezeTime = timeLeft.Seconds + timeLeft.Minutes * 60;
         }
         str = PlayerPrefs.GetString("shield");
         if (str != "")
         {
             TimeSpan timeLeft = DateTime.Parse(str) - DateTime.Now;
             if (timeLeft > TimeSpan.FromSeconds(5))
-            {
-                shield = true;
-                StartCoroutine(SetTimer(shieldTimer, timeLeft.Seconds + timeLeft.Minutes * 60));
-            }
+                shieldTime = timeLeft.Seconds + timeLeft.Minutes * 60;
         }
     }
 
@@ -116,17 +112,34 @@ public class MenuManager : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator SetTimer(Text text, int t)
+    public IEnumerator RunTimers()
     {
-        while (t > 0)
+        while (true)
         {
-            text.text = ((t / 60) % 100).ToString() + ":" + (t % 60).ToString();
+            freezeTime--;
+            shieldTime--;
+            if (freezeTime > 0)
+            {
+                freezeButton.interactable = false;
+                freezeTimer.text = (freezeTime / 60 % 100).ToString() + ":" + (freezeTime % 60).ToString();
+            }
+            else
+            {
+                freezeButton.interactable = true;
+                freezeTimer.text = "SLOW";
+            }
+            if (shieldTime > 0)
+            {
+                shieldButton.interactable = false;
+                shieldTimer.text = (shieldTime / 60 % 100).ToString() + ":" + (shieldTime % 60).ToString();
+            }
+            else
+            {
+                shieldButton.interactable = true;
+                shieldTimer.text = "SHIELD";
+            }
             yield return new WaitForSeconds(1);
-            t--;
         }
-        text.text = "";
-        LoadPurchases();
-        yield return null;
     }
 
     public IEnumerator ChangeText(Text text, string s, float t)

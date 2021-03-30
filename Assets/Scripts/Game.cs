@@ -112,11 +112,11 @@ public class Game : MonoBehaviour
 
     public void LoadBonuses()
     {
-        if (Core.menu.freeze && Core.menu.shield)
+        if (Core.menu.freezeTime > 0 && Core.menu.shieldTime > 0)
             bonuses = new Bullet[] { shield, freeze };
-        else if (Core.menu.freeze)
+        else if (Core.menu.freezeTime > 0)
             bonuses = new Bullet[] { freeze };
-        else if (Core.menu.shield)
+        else if (Core.menu.shieldTime > 0)
             bonuses = new Bullet[] { shield };
         else bonuses = new Bullet[] { };
     }
