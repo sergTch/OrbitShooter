@@ -846,8 +846,8 @@ MonoBehaviour:
   startB: {fileID: 806277604}
   scoreText: {fileID: 859151213}
   topScoreText: {fileID: 1650993430}
-  freezeTimer: {fileID: 0}
-  shieldTimer: {fileID: 0}
+  freezeTimer: {fileID: 1712085302}
+  shieldTimer: {fileID: 248069896}
   freeze: 0
   shield: 0
   reward: 
@@ -1573,7 +1573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &981728064
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2040,7 +2040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1558711719
 SpriteRenderer:
   m_ObjectHideFlags: 0
