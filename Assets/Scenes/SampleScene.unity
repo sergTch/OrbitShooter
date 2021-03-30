@@ -846,14 +846,14 @@ MonoBehaviour:
   startB: {fileID: 806277604}
   scoreText: {fileID: 859151213}
   topScoreText: {fileID: 1650993430}
-  freezeTimer: {fileID: 0}
+  freezeTimer: {fileID: 1706134688}
   shieldTimer: {fileID: 248069896}
-  freeze: 0
-  shield: 0
   freezeButton: {fileID: 1113788411}
   shieldButton: {fileID: 387787790}
   reward: 
   curtain: {fileID: 2089942079}
+  freezeTime: 0
+  shieldTime: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
