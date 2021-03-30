@@ -16,6 +16,10 @@ public class MenuManager : MonoBehaviour
     public Button startB;
     public Text scoreText;
     public Text topScoreText;
+    public Text freezeTimer;
+    public Text shieldTimer;
+
+    public bool freeze, shield;
 
     public string reward;
     public Animator curtain;
@@ -32,8 +36,34 @@ public class MenuManager : MonoBehaviour
         sessions = PlayerPrefs.GetInt("sessions");
         topScoreText.text = "top: " + topScore.ToString();
         scoreText.text = "0";
+        LoadPurchases();
         if (Camera.main.aspect < 1)
             Camera.main.orthographicSize = Camera.main.orthographicSize / Camera.main.aspect;
+    }
+
+    public void LoadPurchases()
+    {
+        Debug.Log("LoadPurchases");
+        string str = PlayerPrefs.GetString("freeze");
+        if (str != "")
+        {
+            TimeSpan timeLeft = DateTime.Parse(str) - DateTime.Now;
+            if (timeLeft > TimeSpan.FromSeconds(5))
+            {
+                freeze = true;
+                StartCoroutine(SetTimer(freezeTimer, timeLeft.Seconds + timeLeft.Minutes * 60));
+            }
+        }
+        str = PlayerPrefs.GetString("shield");
+        if (str != "")
+        {
+            TimeSpan timeLeft = DateTime.Parse(str) - DateTime.Now;
+            if (timeLeft > TimeSpan.FromSeconds(5))
+            {
+                shield = true;
+                StartCoroutine(SetTimer(shieldTimer, timeLeft.Seconds + timeLeft.Minutes * 60));
+            }
+        }
     }
 
     void Update()
@@ -83,6 +113,19 @@ public class MenuManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         startB.gameObject.active = true;
+        yield return null;
+    }
+
+    public IEnumerator SetTimer(Text text, int t)
+    {
+        while (t > 0)
+        {
+            text.text = ((t / 60) % 100).ToString() + ":" + (t % 60).ToString();
+            yield return new WaitForSeconds(1);
+            t--;
+        }
+        text.text = "";
+        LoadPurchases();
         yield return null;
     }
 

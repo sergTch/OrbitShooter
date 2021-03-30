@@ -48,7 +48,6 @@ public class Game : MonoBehaviour
         score = 0;
         prevScore = 0;
         setConstants();
-        LoadPurchases();
         Restart();
     }
 
@@ -62,14 +61,16 @@ public class Game : MonoBehaviour
             SlowDown();
 
         if (spawnSpeed < time) {
-            if (toBonus == 0)
+            if (bonuses.Length > 0 && toBonus == 0)
             {
                 SpawnBullet(bonuses[Random.Range(0, bonuses.Length)]);
-                toBonus = Random.Range(7, 10);
+                toBonus = Random.Range(7, 12) * 2 / bonuses.Length;
             }
             else {
                 SpawnBullet(bullet);
-                toBonus--;
+
+                if (bonuses.Length > 0)
+                    toBonus--;
             }
             time = 0;
         }
@@ -109,22 +110,15 @@ public class Game : MonoBehaviour
             Core.menu.startB.gameObject.active = true;
     }
 
-    public void LoadPurchases()
+    public void LoadBonuses()
     {
-        if (PlayerPrefs.GetInt("shield") == 0)
-        {
-            if (PlayerPrefs.GetInt("freeze") == 0)
-                bonuses = new Bullet[] { };
-            else 
-                bonuses = new Bullet[] { freeze };
-        }
-        else
-        {
-            if (PlayerPrefs.GetInt("freeze") == 0)
-                bonuses = new Bullet[] { shield };
-            else 
-                bonuses = new Bullet[] { shield, freeze };
-        }
+        if (Core.menu.freeze && Core.menu.shield)
+            bonuses = new Bullet[] { shield, freeze };
+        else if (Core.menu.freeze)
+            bonuses = new Bullet[] { freeze };
+        else if (Core.menu.shield)
+            bonuses = new Bullet[] { shield };
+        else bonuses = new Bullet[] { };
     }
 
     public void SlowDown()
@@ -215,5 +209,6 @@ public class Game : MonoBehaviour
     public void Play()
     {
         inProcess = true;
+        LoadBonuses();
     }
 }

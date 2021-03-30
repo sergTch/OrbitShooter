@@ -846,6 +846,10 @@ MonoBehaviour:
   startB: {fileID: 806277604}
   scoreText: {fileID: 859151213}
   topScoreText: {fileID: 1650993430}
+  freezeTimer: {fileID: 0}
+  shieldTimer: {fileID: 0}
+  freeze: 0
+  shield: 0
   reward: 
   curtain: {fileID: 2089942079}
 --- !u!114 &519420034

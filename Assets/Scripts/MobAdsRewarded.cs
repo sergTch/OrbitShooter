@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 using GoogleMobileAds.Api;
 
@@ -47,7 +48,7 @@ public class MobAdsRewarded : MonoBehaviour
 
     public void HandleUserEarnedReward(object sender, Reward args)
     {
-        PlayerPrefs.SetInt(Core.menu.reward, 1);
-        Core.game.LoadPurchases();
+        PlayerPrefs.SetString(Core.menu.reward, (DateTime.Now + TimeSpan.FromMinutes(2)).ToString());
+        Core.menu.LoadPurchases();
     }
 }
