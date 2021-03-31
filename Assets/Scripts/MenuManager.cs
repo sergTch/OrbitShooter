@@ -20,9 +20,11 @@ public class MenuManager : MonoBehaviour
     public Text shieldTimer;
 
     public Button freezeButton, shieldButton;
-
     public string reward;
+
     public Animator curtain;
+    public AudioSource audioSource;
+    public AudioClip flashClip;
 
     public int freezeTime, shieldTime;
     bool shownSettings = false;

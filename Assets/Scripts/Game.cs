@@ -31,6 +31,8 @@ public class Game : MonoBehaviour
 
     public float slowTime = 0;
     public static Vector3 startPos;
+
+    public AudioClip flipClip;
     //public cheeze;
 
     void Start()
@@ -77,7 +79,10 @@ public class Game : MonoBehaviour
 
         time += Time.deltaTime * gameSpeed;
         if (Input.GetMouseButtonDown(0))
+        {
             speed = -speed;
+            Core.menu.audioSource.PlayOneShot(flipClip, 0.05f);
+        }
         SetPlayerPosition();
     }
 
