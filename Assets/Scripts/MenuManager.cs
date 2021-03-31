@@ -25,12 +25,14 @@ public class MenuManager : MonoBehaviour
     public Animator curtain;
     public AudioSource audioSource;
     public AudioClip flashClip;
+    public float volume;
 
     public int freezeTime, shieldTime;
     bool shownSettings = false;
 
     void Start()
     {
+        volume = 1;
         Application.targetFrameRate = 60;
         delay = 0.25f;
         pause = false;
@@ -105,6 +107,16 @@ public class MenuManager : MonoBehaviour
     public void HideSettings()
     {
         shownSettings = false;
+    }
+
+    public void VolumeOn()
+    {
+        volume = 1;
+    }
+
+    public void VolumeOf()
+    {
+        volume = 0;
     }
 
     public IEnumerator Activate(float t)

@@ -31,13 +31,13 @@ public class Coin : MonoBehaviour
         Core.game.coinsN--;
         if (Core.game.coinsN == 0)
         {
-            Core.menu.audioSource.PlayOneShot(Core.menu.flashClip);
+            Core.menu.audioSource.PlayOneShot(Core.menu.flashClip, Core.menu.volume);
             Core.menu.curtain.Play("background");
             Core.game.makeCoins();
         }
         if (Core.game.inProcess)
         {
-            Core.menu.audioSource.PlayOneShot(clip, 0.05f);
+            Core.menu.audioSource.PlayOneShot(clip, 0.05f * Core.menu.volume);
             Core.game.score++;
             Core.menu.scoreText.text = Core.game.score.ToString();
             Core.game.SetGameSpeed();
