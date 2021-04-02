@@ -92,6 +92,7 @@ public class Game : MonoBehaviour
 
         float dfi;
         dfi = Random.Range(1f, 1.3f) - Random.Range(0, 2);
+        //dfi = Random.Range(-1f, 2f);
         dfi *= Mathf.Sign(speed);
         b.speed = new Vector3(Mathf.Cos(fi + dfi), Mathf.Sin(fi + dfi));
         b.transform.rotation = Quaternion.Euler(Vector3.forward * ((fi + dfi) / Mathf.PI * 180 - 90));
