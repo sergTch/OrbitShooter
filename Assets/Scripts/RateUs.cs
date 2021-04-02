@@ -5,8 +5,6 @@ using UnityEngine;
 public class RateUs : MonoBehaviour
 {
 
-private var Link;
-
 #if UNITY_ANDROID
     private const string Link = "https://answers.unity.com/questions/1116891/onclick-open-url.html"; 
 #elif UNITY_IPHONE
@@ -27,9 +25,9 @@ private var Link;
         
     }
 
-    public void RateUs() {
+    public void LoadMarket() {
 
-Application.OpenURL(Link);
+        Application.OpenURL(Link);
 
     }
 }

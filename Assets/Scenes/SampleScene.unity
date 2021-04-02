@@ -1072,7 +1072,7 @@ MonoBehaviour:
   - {fileID: 5028454277151082243, guid: 6c4ced6ef189ee240a96fa565bd5cd70, type: 3}
   - {fileID: 2978192146886399167, guid: e8b930b4385c2e646a18d002fbffbdaf, type: 3}
   slowTime: 0
-  flipClip: {fileID: 8300000, guid: 25160417967504585912f8619be85f59, type: 3}
+  flipClip: {fileID: 8300000, guid: f368dd66e9fa14346bb4612dfc7ee903, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2942,12 +2942,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 519420028}
-        m_MethodName: 
+      - m_Target: {fileID: 519420039}
+        m_MethodName: LoadMarket
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -209,7 +209,7 @@ public class Game : MonoBehaviour
 
     public void SetGameSpeed()
     {
-        gameSpeed = 2 - 1.2f / (score / 30 / 4f + 1);
+        gameSpeed = 2 - 1.2f / (score / 30 / 17.289f + 1);
     }
 
     public void Play()
