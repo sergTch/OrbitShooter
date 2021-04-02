@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6392964957762811040}
-  clip: {fileID: 8300000, guid: 853075e8e54f5499599f104e86e7628a, type: 3}
+  clip: {fileID: 8300000, guid: 71dd09eea2e814bb49d028e4d183f513, type: 3}
 --- !u!61 &7392125664176758306
 BoxCollider2D:
   m_ObjectHideFlags: 0
