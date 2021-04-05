@@ -6,9 +6,9 @@ public class RateUs : MonoBehaviour
 {
 
 #if UNITY_ANDROID
-    private const string Link = "https://answers.unity.com/questions/1116891/onclick-open-url.html"; 
+    private const string Link = "https://play.google.com/store/apps/details?id=com.Acrystal.OrbitShooter"; 
 #elif UNITY_IPHONE
-    private const string Link = "https://answers.unity.com/questions/1116891/onclick-open-url.html";
+    private const string Link = "https://apps.apple.com/us/app/orbit-shooter/id1560561239";
 #else
     private const string Link = "unexpected_platform";
 #endif

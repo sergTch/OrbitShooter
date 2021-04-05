@@ -13,9 +13,9 @@ public class MobAdsRewarded : MonoBehaviour
     private int coints = 0;
 
 #if UNITY_ANDROID
-    private const string rewardedUnitId = "ca-app-pub-3169956978186495/4085795452"; //тестовый айди
+    private const string rewardedUnitId = "ca-app-pub-3169956978186495/4085795452"; 
 #elif UNITY_IPHONE
-    private const string rewardedUnitId = "ca-app-pub-3169956978186495~4996935333";
+    private const string rewardedUnitId = "ca-app-pub-3169956978186495/3492281970";
 #else
     private const string rewardedUnitId = "unexpected_platform";
 #endif
