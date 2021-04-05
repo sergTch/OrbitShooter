@@ -81,7 +81,7 @@ public class Game : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             speed = -speed;
-            Core.menu.audioSource.PlayOneShot(flipClip, 0.05f * Core.menu.volume);
+            Core.menu.audioSource.PlayOneShot(flipClip, 0.2f * Core.menu.volume);
         }
         SetPlayerPosition();
     }

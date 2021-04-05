@@ -27,11 +27,14 @@ public class MenuManager : MonoBehaviour
     public AudioClip flashClip;
     public float volume;
 
+    public int gamesToAd;
+
     public int freezeTime, shieldTime;
     bool shownSettings = false;
 
     void Start()
     {
+        gamesToAd = 5;
         volume = 1;
         Application.targetFrameRate = 60;
         delay = 0.25f;
@@ -73,6 +76,12 @@ public class MenuManager : MonoBehaviour
 
     public void ShowMenu()
     {
+        gamesToAd--;
+        if (gamesToAd == 0)
+        {
+            gamesToAd = 5;
+            GetComponent<MobAdsSimple>().ShowAd();
+        }
         StartCoroutine(ChangeText(topScoreText, "top: " + topScore.ToString(), delay));
     }
     public void HideMenu()

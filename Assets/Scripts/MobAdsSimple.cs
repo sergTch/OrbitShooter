@@ -27,6 +27,9 @@ public class MobAdsSimple : MonoBehaviour
         if (interstitialAd.IsLoaded())
         {
             interstitialAd.Show();
+            interstitialAd = new InterstitialAd(interstitialUnitId);
+            AdRequest adRequest = new AdRequest.Builder().Build();
+            interstitialAd.LoadAd(adRequest);
         }
     }
 }
